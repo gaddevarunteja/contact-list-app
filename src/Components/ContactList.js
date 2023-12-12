@@ -82,16 +82,24 @@ export function ContactList(props) {
                     <button onClick={() => updateContact()}> Update </button> 
                 ) 
             }
-            <ul>
-                {users.map((user, index) =>
-                    <li key={index}>
-                        {user.name} &emsp;
-                        {user.phone}
-                        <button onClick={() => handleEdit(index)}> Edit </button> 
-                        <button onClick={() => deleteContact(index)}> Delete </button> 
-                    </li>   
-                )}
-            </ul>
+            <table style={{margin: "auto"}}>
+                <thead>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    {users.map((user, index) =>
+                        <tr key={index}>
+                            <td>{user.name}</td>
+                            <td>{user.phone}</td>
+                            <td><button onClick={() => handleEdit(index)}> Edit </button> </td>
+                            <td><button onClick={() => deleteContact(index)}> Delete </button> </td>
+                        </tr>   
+                    )}
+                </tbody>
+            </table>
         </>
     );
 }
